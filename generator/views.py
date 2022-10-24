@@ -1,10 +1,11 @@
 from django.shortcuts import render
 import random
-import re
+
 # Create your views here.
 
 def home(request):
-    return render(request, 'generator/home.html')
+    title = 'Generator'
+    return render(request, 'generator/home.html', {'title':title})
 
 
 def password(request):
@@ -25,7 +26,10 @@ def password(request):
     for x in range(length):
         thepassword += random.choice(characters)
 
-    return render(request, 'generator/password.html', {'password':thepassword})
+    title = 'Password generation'
+
+    return render(request, 'generator/password.html', {'password':thepassword, 'title':title})
 
 def about(request):
-    return render(request, 'generator/about.html')
+    title = 'About'
+    return render(request, 'generator/about.html', {'title': title})
